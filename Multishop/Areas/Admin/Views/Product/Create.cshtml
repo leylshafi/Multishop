@@ -1,0 +1,82 @@
+﻿@model CreateProductVM
+<div class="content-wrapper">
+	<div class="row">
+		<div class="col-lg-12 grid-margin stretch-card">
+			<div class="card">
+				<div class="card-body">
+					<form class="forms-sample" method="post" enctype="multipart/form-data">
+						<div class="form-group">
+							<label asp-for="MainPhoto">Main Image</label>
+							<input accept="image/*" asp-for="MainPhoto" class="form-control">
+							<span class="text-danger" asp-validation-for="MainPhoto"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="Photos">Additional Image</label>
+							<input accept="image/*" asp-for="Photos" class="form-control">
+							<span class="text-danger" asp-validation-for="Photos"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="Name">Name</label>
+							<input asp-for="Name" class="form-control"  placeholder="Name">
+							<span class="text-danger" asp-validation-for="Name"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="Price">Price</label>
+							<input asp-for="Price" class="form-control"  placeholder="Price">
+							<span class="text-danger" asp-validation-for="Price"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="Description">Description</label>
+							<input asp-for="Description" class="form-control" placeholder="Description">
+							<span class="text-danger" asp-validation-for="Description"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="FacebookLink">Facebook Link</label>
+							<input asp-for="FacebookLink" class="form-control" placeholder="FacebookLink">
+							<span class="text-danger" asp-validation-for="FacebookLink"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="TwitterLink">Twitter Link</label>
+							<input asp-for="TwitterLink" class="form-control" placeholder="TwitterLink">
+							<span class="text-danger" asp-validation-for="TwitterLink"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="LinkedinLink">Linkedin Link</label>
+							<input asp-for="LinkedinLink" class="form-control" placeholder="LinkedinLink">
+							<span class="text-danger" asp-validation-for="LinkedinLink"></span>
+							<div class="form-group">
+								<label asp-for="PinterestLink">Pinterest Link</label>
+								<input asp-for="PinterestLink" class="form-control" placeholder="PinterestLink">
+								<span class="text-danger" asp-validation-for="PinterestLink"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label asp-for="CategoryId">Category</label>
+							<select asp-for="CategoryId" asp-items="new SelectList(Model.Categories,nameof(Category.Id),nameof(Category.Name))" class="form-control">
+								<option selected disabled>Choose Category</option>
+							</select>
+							<span class="text-danger" asp-validation-for="CategoryId"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="SizeIds">Sizes</label>
+							<select multiple asp-for="SizeIds" asp-items="new SelectList(Model.Sizes,nameof(Size.Id),nameof(Size.Name))" class="form-control">
+							</select>
+							<span class="text-danger" asp-validation-for="SizeIds"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="ColorIds">Colors</label>
+							<select multiple asp-for="ColorIds" asp-items="new SelectList(Model.Colors,nameof(Size.Id),nameof(Size.Name))" class="form-control">
+							</select>
+							<span class="text-danger" asp-validation-for="ColorIds"></span>
+						</div>
+						<button type="submit" class="btn btn-primary me-2">Submit</button>
+						<a asp-action="Index" class="btn btn-light">Cancel</a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
